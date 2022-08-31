@@ -4,9 +4,11 @@ import "./App.css";
 
 function App() {
   const [message, setMessage] = useState("");
+  const [language, setLanguage] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
+    setLanguage(liff.getLanguage());
     liff
       .init({
         liffId: "1657418011-9QvJjKVb"
@@ -23,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <h1>create-liff-app</h1>
+      {language && <p>{language}</p>}
       {message && <p>{message}</p>}
       {error && (
         <p>
