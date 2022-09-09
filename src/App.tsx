@@ -12,7 +12,7 @@ function App() {
     setLanguage(liff.getLanguage());
 
     if(liff.getDecodedIDToken()){
-      setUserId(liff.getDecodedIDToken().sub || '');
+      setUserId(liff.getDecodedIDToken()!.sub || '');
     }
     liff
       .init({
