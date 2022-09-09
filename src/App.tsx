@@ -10,15 +10,14 @@ function App() {
 
   useEffect(() => {
     setLanguage(liff.getLanguage());
-
-    if(liff.getDecodedIDToken()){
-      setUserId(liff.getDecodedIDToken()!.sub || '');
-    }
     liff
       .init({
         liffId: "1657418011-9QvJjKVb"
       })
       .then(() => {
+        if(liff.getDecodedIDToken()){
+          setUserId(liff.getDecodedIDToken()!.sub || '');
+        }
         setMessage("LIFF init succeeded.");
       })
       .catch((e: Error) => {
