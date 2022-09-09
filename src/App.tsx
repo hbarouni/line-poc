@@ -10,6 +10,7 @@ function App() {
 
   useEffect(() => {
     setLanguage(liff.getLanguage());
+
     if(liff.getDecodedIDToken() && liff.getDecodedIDToken().sub){
       setUserId(liff.getDecodedIDToken().sub);
     }
