@@ -5,12 +5,12 @@ import "./App.css";
 function App() {
   const [message, setMessage] = useState("");
   const [language, setLanguage] = useState("");
-  const [idToken, setIdToken] = useState("");
+  const [userId, setUserId] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
     setLanguage(liff.getLanguage());
-    setIdToken(liff.getDecodedIDToken());
+    setUserId(liff.getDecodedIDToken().sub);
     liff
       .init({
         liffId: "1657418011-9QvJjKVb"
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <h1>create-liff-app</h1>
-      {idToken && <p>{idToken}</p>}
+      {userId && <p>{userId}</p>}
       {language && <p>{language}</p>}
       {message && <p>{message}</p>}
       {error && (
